@@ -1,0 +1,152 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --light: rgb(211, 211, 211);
+    --dark: rgb(26, 26, 26);
+    --highlight: #39a0c0;
+    --lowlight: #16404d;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    transition: background-color .2s linear;
+}
+
+body {
+    font-family: 'Heebo', sans-serif;
+    background: var(--highlight);
+    transition: background-color .2s linear;
+}
+
+body.dark {
+    background: var(--lowlight);
+    -webkit-box-shadow: 2px 2px 4px 0px var(--light); 
+    box-shadow: 2px 2px 4px 0px var(--light);
+}
+
+body.dark .header,
+body.dark .post,
+body.dark h1 {
+    background: var(--dark);
+    color: var(--light)
+}
+
+body.dark button {
+    color: var(--light);
+    background: var(--lowlight)
+
+}
+
+body.dark label {
+    background: var(--lowlight);
+}
+
+img {
+    max-width: 100%;
+    max-height: 300px;
+    margin-left: .3em;
+}
+
+.header {
+    background-color: var(--light);
+    padding: 2em;
+    width: 100%;
+    display: flex;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.post-container {
+    padding: 1em 2em;
+}
+
+.post,
+button,
+img {
+    -webkit-box-shadow: 2px 2px 4px 0px var(--dark); 
+    box-shadow: 2px 2px 4px 0px var(--dark);
+    border-radius: 5px;
+}
+
+.post {
+    background: var(--light);
+    padding: 1em;
+    display: grid;
+    grid-template-columns: 1fr minmax(50px,250px);
+    min-width: 400px;
+    max-width: 700px;
+    margin: 2em auto;
+    color: var(--dark);
+}
+
+h1 {
+    color: var(--dark);
+    margin: 0;
+    font-size: 3rem;
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+    border: none;
+    padding: 1em 2em;
+    font-weight: 700;
+    justify-self: start;
+    background-color: var(--dark);
+    color: var(--highlight)
+}
+
+.toggle {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+    margin-left: auto;
+    background-color: var(--highlight);
+}
+
+label {
+    width: 50px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: var(--highlight);
+    position: relative;
+    cursor: pointer;
+    margin: 1em;
+}
+
+label::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    top: 2px;
+    left: 22px;
+    transition: .5s;
+    background-color: var(--light);
+}
+
+.toggle:checked + label::after {
+    transform: translate(-18px);
+    background-color: var(--dark)
+}
+
+.dark,
+.dark > h1,
+.dark .toggle::after {
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+.dark button {
+    background-color: var(--light);
+    color: var(--dark);
+}
