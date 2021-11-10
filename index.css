@@ -55,8 +55,6 @@ img {
     padding: 2em;
     width: 100%;
     display: flex;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
 }
 
 .post-container {
